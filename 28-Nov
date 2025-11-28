@@ -1,0 +1,19 @@
+leet Code 122 Buy and Sell Stock 2
+-----------------------------------
+
+Solution - Buy whenever we see a profit is on next day, we are adding up all the ups in price, thus max profit.
+
+class Solution {
+    public int maxProfit(int[] prices) {
+        int money=0,currPrice,prevPrice;
+        
+        for(int i =1; i< prices.length;i++){
+            currPrice = prices[i];
+            prevPrice = prices[i-1];
+            if(currPrice>prevPrice){
+                money+=currPrice-prevPrice;
+            }
+        }
+        return money;
+    }
+}
