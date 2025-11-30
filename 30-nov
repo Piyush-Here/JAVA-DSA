@@ -1,0 +1,25 @@
+Leet Code 55 -- Jump Game 
+  Find if we can reach last element from any element. 
+  Check each element from last and if we find one then we check if we can reach that element from previous elements.
+  
+  Eventually we reach index 0,
+  or
+  We reach an index (say x) for which there is no element (say y) from which we can reach x, 
+  such that index of y is less than index of x.
+
+  If we do not reach till index 0, we can never reach the end element by starting at 0th index.
+
+
+class Solution {
+    public boolean canJump(int[] nums) {
+        if(nums.length==1)
+            return true;
+        int posToReach=nums.length-1;
+        for(int i=nums.length-2;i>=0;i--){
+            if(nums[i]>=((posToReach)-i)){
+                posToReach=i;
+            }
+        }
+        return posToReach==0;
+    }
+}
